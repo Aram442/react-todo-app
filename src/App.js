@@ -1,10 +1,30 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import Todo from "./todo/Todo.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import { db } from "./firebase.js";
+import { query, collection , onSnapshot } from "firebase/firestore";
 
 function App() {
-  const [todos, setTodos] = useState(["Learn React", "Learn Fierbase"]);
+  const [todos, setTodos] = useState([]);
 
+  //----------------------------- CREATE TODO -----------------------------//
+  //-----------------------READ TODO FROM FIREBASE ------------------------//
+
+  useEffect(() => {
+    const q = query(collection(db, "todos"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let todosArr = [];
+      querySnapshot.forEach((doc) => {
+        todosArr.push({ ...doc.data(), id: doc.id });
+      });
+      setTodos(todosArr);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  //----------------------- UPDATE TODO IN FIREBASE -----------------------//
+  //-------------------------- DELETE TODO---------------------------------//
   return (
     <div>
       <div>
