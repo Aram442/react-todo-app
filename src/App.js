@@ -3,7 +3,13 @@ import Todo from "./todo/Todo.jsx";
 import { useState, useEffect } from "react";
 
 import { db } from "./firebase.js";
-import { query, collection , onSnapshot } from "firebase/firestore";
+import {
+  query,
+  collection,
+  onSnapshot,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -24,6 +30,13 @@ function App() {
   }, []);
 
   //----------------------- UPDATE TODO IN FIREBASE -----------------------//
+  
+  const toggleComplete = async (todo) => {
+    await updateDoc(doc(db, "todos", todo.id), {
+      completed: !todo.completed,
+    });
+  };
+
   //-------------------------- DELETE TODO---------------------------------//
   return (
     <div>
@@ -37,7 +50,7 @@ function App() {
         </form>
         <ul>
           {todos.map((todo, index) => (
-            <Todo key={index} todo={todo} />
+            <Todo key={index} todo={todo} toggleComplete={toggleComplete} />
           ))}
         </ul>
         <p>You have 2 todos</p>
