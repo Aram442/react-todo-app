@@ -75,7 +75,7 @@ function App() {
             <Todo key={index} todo={todo} toggleComplete={toggleComplete} />
           ))}
         </ul>
-        <p>You have 2 todos</p>
+        {todos.length < 1 ? null : <p>{`You have ${todos.length} Todos`}</p>}
       </div>
     </div>
   );
