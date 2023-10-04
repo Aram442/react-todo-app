@@ -9,12 +9,28 @@ import {
   onSnapshot,
   updateDoc,
   doc,
+  addDoc,
 } from "firebase/firestore";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState("");
 
   //----------------------------- CREATE TODO -----------------------------//
+
+  const createTodo = async (e) => {
+    e.preventDefault(e);
+    if (input === "") {
+      alert("Please enter a valid todo");
+      return;
+    }
+    await addDoc(collection(db, "todos"), {
+      text: input,
+      completed: false,
+    });
+    setInput("");
+  };
+
   //-----------------------READ TODO FROM FIREBASE ------------------------//
 
   useEffect(() => {
@@ -30,7 +46,7 @@ function App() {
   }, []);
 
   //----------------------- UPDATE TODO IN FIREBASE -----------------------//
-  
+
   const toggleComplete = async (todo) => {
     await updateDoc(doc(db, "todos", todo.id), {
       completed: !todo.completed,
@@ -42,7 +58,7 @@ function App() {
     <div>
       <div>
         <h3>Todo App</h3>
-        <form>
+        <form onSubmit={createTodo}>
           <input type="text" placeholder="Add Todo" />
           <button>
             <AiOutlinePlus size={30} />
