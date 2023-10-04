@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function App() {
   const [todos, setTodos] = useState(["Learn React", "Learn Fierbase"]);
-  
+
   return (
     <div>
       <div>
@@ -18,6 +18,7 @@ function App() {
         <ul>
           {todos.map((todo, index) => {
             <Todo key={index} todo={todo} />;
+            console.log(todo)
           })}
         </ul>
       </div>

@@ -6,7 +6,7 @@ function Todo({ todo }) {
     <li>
       <div>
         <input />
-        <p></p>
+        <p>{todo}</p>
       </div>
       <button>{<FaRegTrashAlt />}</button>
     </li>
