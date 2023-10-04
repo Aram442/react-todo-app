@@ -6,7 +6,7 @@ function Todo({ todo }) {
   return (
     <li className={todo.completed ? "completed" : "li"}>
       <div>
-        <input type="checkbox" />
+        <input type="checkbox" checked={todo.completed ? "checked" : ""} />
         <p>{todo.text}</p>
       </div>
       <button>{<FaRegTrashAlt />}</button>
