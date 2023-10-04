@@ -10,6 +10,7 @@ import {
   updateDoc,
   doc,
   addDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 function App() {
@@ -55,6 +56,10 @@ function App() {
   };
 
   //-------------------------- DELETE TODO---------------------------------//
+  const deleteTodo = async (id) => {
+    await deleteDoc(doc(db, "todos", id));
+  };
+
   return (
     <div>
       <div>
@@ -72,7 +77,12 @@ function App() {
         </form>
         <ul>
           {todos.map((todo, index) => (
-            <Todo key={index} todo={todo} toggleComplete={toggleComplete} />
+            <Todo
+              key={index}
+              todo={todo}
+              toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
+            />
           ))}
         </ul>
         {todos.length < 1 ? null : <p>{`You have ${todos.length} Todos`}</p>}
