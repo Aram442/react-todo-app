@@ -1,6 +1,10 @@
 import { AiOutlinePlus } from "react-icons/ai";
+import Todo from "./todo/Todo.jsx";
+import { useState } from "react";
 
 function App() {
+  const [todos, setTodos] = useState(["Learn React", "Learn Fierbase"]);
+  
   return (
     <div>
       <div>
@@ -11,7 +15,11 @@ function App() {
             <AiOutlinePlus size={30} />
           </button>
         </form>
-        <ul></ul>
+        <ul>
+          {todos.map((todo, index) => {
+            <Todo key={index} todo={todo} />;
+          })}
+        </ul>
       </div>
     </div>
   );

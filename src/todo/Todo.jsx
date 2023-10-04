@@ -1,7 +1,7 @@
 import React from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-function Todo() {
+function Todo({ todo }) {
   return (
     <li>
       <div>
