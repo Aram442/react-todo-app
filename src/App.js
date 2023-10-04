@@ -1,4 +1,3 @@
-import "./App.css";
 import { AiOutlinePlus } from "react-icons/ai";
 
 function App() {
