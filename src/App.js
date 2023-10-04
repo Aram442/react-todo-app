@@ -15,6 +15,7 @@ import {
 function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+  // console.log(input);
 
   //----------------------------- CREATE TODO -----------------------------//
 
@@ -28,7 +29,7 @@ function App() {
       text: input,
       completed: false,
     });
-    setInput("");
+    setInput(""); // after writing Todo Clear The input Field
   };
 
   //-----------------------READ TODO FROM FIREBASE ------------------------//
@@ -59,7 +60,12 @@ function App() {
       <div>
         <h3>Todo App</h3>
         <form onSubmit={createTodo}>
-          <input type="text" placeholder="Add Todo" />
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            type="text"
+            placeholder="Add Todo"
+          />
           <button>
             <AiOutlinePlus size={30} />
           </button>
