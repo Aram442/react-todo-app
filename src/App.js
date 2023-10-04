@@ -16,11 +16,11 @@ function App() {
           </button>
         </form>
         <ul>
-          {todos.map((todo, index) => {
-            <Todo key={index} todo={todo} />;
-            console.log(todo)
-          })}
+          {todos.map((todo, index) => (
+            <Todo key={index} todo={todo} />
+          ))}
         </ul>
+        <p>You have 2 todos</p>
       </div>
     </div>
   );

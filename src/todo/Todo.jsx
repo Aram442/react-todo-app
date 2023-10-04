@@ -5,7 +5,7 @@ function Todo({ todo }) {
   return (
     <li>
       <div>
-        <input />
+        <input type="checkbox" />
         <p>{todo}</p>
       </div>
       <button>{<FaRegTrashAlt />}</button>
