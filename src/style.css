@@ -10,8 +10,22 @@
   position: relative;
   background: gray;
 }
-h1 {
-  margin-top: 2rem;
+header {
+  min-width: 70vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: brown;
+}
+form {
+    min-width: 70vw;
+   background-color: green;
+    margin-bottom: 1rem;
+    
+}
+.svg-btn{
+    width: 2rem;
+   
 }
 .sub-container {
   min-width: 70vw;
@@ -30,4 +44,23 @@ ul {
   display: flex;
   justify-content: left;
   background: yellow;
+}
+
+h1 {
+  margin-top: 2rem;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.text-input {
+  width: 80%;
+  height: 2rem;
+ padding-top: 0.7rem;
+}
+.text-input::placeholder { 
+    color: blue;
+    padding: 2rem;
+}
+.text-input::value { 
+    color: blue;
+    padding: 2rem;
 }

@@ -67,15 +67,16 @@ function App() {
       <div className="sub-container">
         <header>
           <h1>Todo App</h1>
-          <form id="new-task-form" onSubmit={createTodo}>
+          <form onSubmit={createTodo}>
             <input
+            className="text-input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               type="text"
               placeholder="Add Todo"
             />
-            <button id="new-task-submit">
-              <AiOutlinePlus size={30} />
+            <button className="svg-btn">
+              <AiOutlinePlus size={25} />
             </button>
           </form>
         </header>
