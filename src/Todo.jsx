@@ -1,11 +1,10 @@
 import React from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
-import "./style.css";
 
 function Todo({ todo, toggleComplete, deleteTodo }) {
   return (
     <li className={todo.completed ? "completed" : "li"}>
-      <div>
+      <div className="input-p">
         <input
           onChange={() => toggleComplete(todo)}
           type="checkbox"

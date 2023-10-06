@@ -69,7 +69,6 @@ function App() {
           <h1>Todo App</h1>
           <form id="new-task-form" onSubmit={createTodo}>
             <input
-              id="new-task-input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               type="text"
