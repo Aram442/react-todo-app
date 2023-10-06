@@ -63,8 +63,8 @@ function App() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="container">
+      <div className="sub-container">
         <header>
           <h1>Todo App</h1>
           <form id="new-task-form" onSubmit={createTodo}>
@@ -80,8 +80,6 @@ function App() {
             </button>
           </form>
         </header>
-
-        {/* <section class="task-list"> */}
         <ul>
           {todos.map((todo, index) => (
             <Todo
@@ -94,7 +92,6 @@ function App() {
         </ul>
 
         {todos.length < 1 ? null : <p>{`You have ${todos.length} Todos`}</p>}
-        {/* </section> */}
       </div>
     </div>
   );
