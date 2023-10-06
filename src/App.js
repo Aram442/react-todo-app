@@ -1,6 +1,8 @@
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePlus  } from "react-icons/ai";
+
 import Todo from "./Todo.jsx";
 import { useState, useEffect } from "react";
+import "./style.css";
 
 import { db } from "./firebase.js";
 import {
@@ -63,29 +65,40 @@ function App() {
   return (
     <div>
       <div>
-        <h3>Todo App</h3>
-        <form onSubmit={createTodo}>
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            type="text"
-            placeholder="Add Todo"
-          />
-          <button>
-            <AiOutlinePlus size={30} />
-          </button>
-        </form>
-        <ul>
-          {todos.map((todo, index) => (
-            <Todo
-              key={index}
-              todo={todo}
-              toggleComplete={toggleComplete}
-              deleteTodo={deleteTodo}
+        <header>
+          <h1>Todo App</h1>
+          <form id="new-task-form" onSubmit={createTodo}>
+            <input
+              id="new-task-input"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              type="text"
+              placeholder="Add Todo"
             />
-          ))}
-        </ul>
-        {todos.length < 1 ? null : <p>{`You have ${todos.length} Todos`}</p>}
+            <button id="new-task-submit">
+              <AiOutlinePlus size={30} />
+            </button>
+          </form>
+        </header>
+        <main>
+          <section class="task-list">
+            <ul>
+              ImCheckboxChecked
+              {todos.map((todo, index) => (
+                <Todo
+                  key={index}
+                  todo={todo}
+                  toggleComplete={toggleComplete}
+                  deleteTodo={deleteTodo}
+                />
+              ))}
+            </ul>
+
+            {todos.length < 1 ? null : (
+              <p>{`You have ${todos.length} Todos`}</p>
+            )}
+          </section>
+        </main>
       </div>
     </div>
   );
