@@ -1,4 +1,4 @@
-import { AiOutlinePlus  } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
 
 import Todo from "./Todo.jsx";
 import { useState, useEffect } from "react";
@@ -80,25 +80,21 @@ function App() {
             </button>
           </form>
         </header>
-        <main>
-          <section class="task-list">
-            <ul>
-              ImCheckboxChecked
-              {todos.map((todo, index) => (
-                <Todo
-                  key={index}
-                  todo={todo}
-                  toggleComplete={toggleComplete}
-                  deleteTodo={deleteTodo}
-                />
-              ))}
-            </ul>
 
-            {todos.length < 1 ? null : (
-              <p>{`You have ${todos.length} Todos`}</p>
-            )}
-          </section>
-        </main>
+        {/* <section class="task-list"> */}
+        <ul>
+          {todos.map((todo, index) => (
+            <Todo
+              key={index}
+              todo={todo}
+              toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
+            />
+          ))}
+        </ul>
+
+        {todos.length < 1 ? null : <p>{`You have ${todos.length} Todos`}</p>}
+        {/* </section> */}
       </div>
     </div>
   );
