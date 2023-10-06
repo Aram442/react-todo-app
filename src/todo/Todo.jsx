@@ -1,5 +1,4 @@
 import React from "react";
-import "./todo.scss";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 function Todo({ todo, toggleComplete, deleteTodo }) {
