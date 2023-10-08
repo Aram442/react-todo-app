@@ -41,7 +41,7 @@ const Todo = ({ todo, toggleComplete, deleteTodo, handleEdit }) => {
             type="text"
             value={newText}
             onChange={handleInputChange}
-            className="ml-3"
+            className="ml-3 p-2 border border-gray-300 rounded-md w-80"
           />
         ) : (
           <p
