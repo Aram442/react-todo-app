@@ -2,7 +2,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import Todo from "./Todo.jsx";
 import { useState, useEffect } from "react";
 import Login from "./auth/Login.jsx";
-import Link from "./Link.jsx";
+import LinkTo from "./LinkTo.jsx";
 
 import { db } from "./firebase.js";
 import {
@@ -78,8 +78,9 @@ function App() {
 
   return (
     <div>
+      <LinkTo />
       <Login />
-      <Link />
+
       <div className={style.bg}>
         <div className={style.container}>
           <h3 className={style.heading}>Todo App</h3>
