@@ -1,6 +1,7 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import Todo from "./Todo.jsx";
 import { useState, useEffect } from "react";
+import Login from "./auth/Login.jsx";
 
 import { db } from "./firebase.js";
 import {
@@ -75,35 +76,38 @@ function App() {
   };
 
   return (
-    <div className={style.bg}>
-      <div className={style.container}>
-        <h3 className={style.heading}>Todo App</h3>
-        <form onSubmit={createTodo} className={style.form}>
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            className={style.input}
-            type="text"
-            placeholder="Add Todo"
-          />
-          <button className={style.button}>
-            <AiOutlinePlus size={30} />
-          </button>
-        </form>
-        <ul>
-          {todos.map((todo, index) => (
-            <Todo
-              key={index}
-              todo={todo}
-              toggleComplete={toggleComplete}
-              deleteTodo={deleteTodo}
-              handleEdit={handleEdit}
+    <div>
+      <Login />
+      <div className={style.bg}>
+        <div className={style.container}>
+          <h3 className={style.heading}>Todo App</h3>
+          <form onSubmit={createTodo} className={style.form}>
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className={style.input}
+              type="text"
+              placeholder="Add Todo"
             />
-          ))}
-        </ul>
-        {todos.length < 1 ? null : (
-          <p className={style.count}>{`You have ${todos.length} todos`}</p>
-        )}
+            <button className={style.button}>
+              <AiOutlinePlus size={30} />
+            </button>
+          </form>
+          <ul>
+            {todos.map((todo, index) => (
+              <Todo
+                key={index}
+                todo={todo}
+                toggleComplete={toggleComplete}
+                deleteTodo={deleteTodo}
+                handleEdit={handleEdit}
+              />
+            ))}
+          </ul>
+          {todos.length < 1 ? null : (
+            <p className={style.count}>{`You have ${todos.length} todos`}</p>
+          )}
+        </div>
       </div>
     </div>
   );
