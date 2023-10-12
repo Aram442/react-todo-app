@@ -10,9 +10,14 @@ import { auth } from "../firebase";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null); // State to store error messages
 
   const signIn = (e) => {
     e.preventDefault();
+
+    // Reset any previous error messages
+    setError(null);
+
     //------------------ SIGN IN WITH EMAIL & PASSWORD -------------------//
     try {
       signInWithEmailAndPassword(auth, email, password)
@@ -20,12 +25,14 @@ function Login() {
           console.log(userCredential);
         })
         .catch((error) => {
-          console.error(error);
+          // Display the error message to the user
+          setError(error.message);
         });
     } catch (error) {
       console.error(error);
     }
   };
+
   //--------------------- SIGN IN WITH GOOGLE --------------------------//
   const googleProvider = new GoogleAuthProvider();
   const GoogleLogin = async () => {
@@ -73,6 +80,12 @@ function Login() {
             Log In
           </button>
         </form>
+
+        {error && (
+          <div className="text-red-600 mt-2 text-center">
+            The Email & Password Incorrect or Not Exist
+          </div>
+        )}
       </div>
     </div>
   );
