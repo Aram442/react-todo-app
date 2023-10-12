@@ -45,10 +45,10 @@ function Login() {
   };
 
   return (
-    <div className="bg-white shadow-xl mt-32 p-10 text-gray-700 rounded-lg w-1/2 mx-auto">
+    <div className="bg-white shadow-xl mt-4 p-4 text-gray-700 rounded-lg sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mx-auto">
       <h2 className="text-3xl font-medium mb-4">Join Today</h2>
       <div className="py-4">
-        <h3 className="py-4">Sign in with one of the providers</h3>
+        <h3 className="py-2 sm:py-4">Sign in with one of the providers</h3>
       </div>
       <div className="flex flex-col gap-3">
         <button
