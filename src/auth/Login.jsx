@@ -13,6 +13,7 @@ function Login() {
 
   const signIn = (e) => {
     e.preventDefault();
+    //------------------ SIGN IN WITH EMAIL & PASSWORD -------------------//
     try {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -25,7 +26,7 @@ function Login() {
       console.error(error);
     }
   };
-
+  //--------------------- SIGN IN WITH GOOGLE --------------------------//
   const googleProvider = new GoogleAuthProvider();
   const GoogleLogin = async () => {
     try {

@@ -6,7 +6,6 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //------------------ SIGN UP WITH EMAIL & PASSWORD -------------------//
   const signUp = (e) => {
     e.preventDefault();
     try {
@@ -23,22 +22,29 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <form onSubmit={signUp}>
-        <h1>Create Account</h1>
+    <div className="bg-white shadow-xl p-6 mx-auto w-1/2 mt-16 rounded-lg">
+      <h1 className="text-2xl font-semibold mb-4">Create Account</h1>
+      <form onSubmit={signUp} className="flex flex-col gap-4">
         <input
           type="email"
           placeholder="Enter Your Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="px-3 py-2 border rounded-lg"
         />
         <input
           type="password"
           placeholder="Enter The Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="px-3 py-2 border rounded-lg"
         />
-        <button type="submit">Sign Up</button>
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg"
+        >
+          Sign Up
+        </button>
       </form>
     </div>
   );
