@@ -11,7 +11,6 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //------------------ SIGN IN WITH EMAIL & PASSWORD -------------------//
   const signIn = (e) => {
     e.preventDefault();
     try {
@@ -27,7 +26,6 @@ function Login() {
     }
   };
 
-  //--------------------- SIGN IN WITH GOOGLE --------------------------//
   const googleProvider = new GoogleAuthProvider();
   const GoogleLogin = async () => {
     try {
@@ -37,34 +35,42 @@ function Login() {
       console.log(error);
     }
   };
+
   return (
-    <div className="shadow-xl mt-32 p-10 text-gray-700 rounded-lg">
-      <h2 className="text-3xl font-medium">Join Today</h2>
+    <div className="bg-white shadow-xl mt-32 p-10 text-gray-700 rounded-lg w-1/2 mx-auto">
+      <h2 className="text-3xl font-medium mb-4">Join Today</h2>
       <div className="py-4">
-        <h3 className="py-4">Sign with one of the providers</h3>
+        <h3 className="py-4">Sign in with one of the providers</h3>
       </div>
       <div className="flex flex-col gap-3">
         <button
           onClick={GoogleLogin}
-          className="text-white bg-gray-700 p-4 w-full font-medium rounded-lg flex align-middle gap-2"
+          className="bg-gray-700 text-white p-4 w-full font-medium rounded-lg flex items-center justify-center gap-2"
         >
           <FcGoogle className="text-2xl" /> Sign in with Google
         </button>
 
-        <form action="">
+        <form onSubmit={signIn} className="flex flex-col gap-4">
           <input
             type="email"
             placeholder="Enter Your Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="px-3 py-2 border rounded-lg"
           />
           <input
             type="password"
             placeholder="Enter The Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="px-3 py-2 border rounded-lg"
           />
-          <button type="submit">Log In</button>
+          <button
+            type="submit"
+            className="bg-gray-700 text-white p-4 rounded-lg hover:bg-gray-800"
+          >
+            Log In
+          </button>
         </form>
       </div>
     </div>
