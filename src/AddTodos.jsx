@@ -2,6 +2,8 @@ import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import Todo from "./Todo.jsx";
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase.js";
 
 import { db } from "./firebase.js";
 import {
@@ -65,6 +67,7 @@ function AddTodos() {
       completed: !todo.completed,
     });
   };
+
   //--------------------------  UPDATE TODO---------------------------------//
   const handleEdit = async (todo, text) => {
     await updateDoc(doc(db, "todos", todo.id), { text: text });
@@ -73,6 +76,15 @@ function AddTodos() {
   //-------------------------- DELETE TODO---------------------------------//
   const deleteTodo = async (id) => {
     await deleteDoc(doc(db, "todos", id));
+  };
+
+  //----------------------------- SIGN OUT -----------------------------------//
+  const userSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Sign out Successful");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -106,6 +118,12 @@ function AddTodos() {
           {todos.length < 1 ? null : (
             <p className={style.count}>{`You have ${todos.length} todos`}</p>
           )}
+          <button
+            className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded"
+            onClick={userSignOut}
+          >
+            Sign Out
+          </button>
         </div>
       </div>
     </div>

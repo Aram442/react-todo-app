@@ -31,14 +31,16 @@ function AuthDatails() {
 
   return (
     <div>
-      {/* {AuthUser ? (
+      {AuthUser ? (
         <>
           <p>`Signed In as {AuthUser.email}`</p>
           <button onClick={userSignOut}>Sign Out</button>
         </>
       ) : (
-        <p>Sugned Out</p>
-      )} */}
+        <p className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+          Sugned Out
+        </p>
+      )}
     </div>
   );
 }
