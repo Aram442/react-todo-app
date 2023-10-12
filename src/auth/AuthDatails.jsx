@@ -31,14 +31,14 @@ function AuthDatails() {
 
   return (
     <div>
-      {AuthUser ? (
+      {/* {AuthUser ? (
         <>
           <p>`Signed In as {AuthUser.email}`</p>
           <button onClick={userSignOut}>Sign Out</button>
         </>
       ) : (
         <p>Sugned Out</p>
-      )}
+      )} */}
     </div>
   );
 }
