@@ -1,13 +1,31 @@
 import React, { useState } from "react";
-import { AiFillFacebook } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../firebase";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   //------------------ SIGN IN WITH EMAIL & PASSWORD -------------------//
+  const signIn = (e) => {
+    e.preventDefault();
+    try {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log(userCredential);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   //--------------------- SIGN IN WITH GOOGLE --------------------------//
   const googleProvider = new GoogleAuthProvider();
