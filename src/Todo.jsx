@@ -3,12 +3,23 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
 
 const style = {
-  li: `flex justify-between bg-slate-200 p-4 my-2 capitalize`,
-  liComplete: `flex justify-between bg-slate-400 p-4 my-2 capitalize`,
+  li: `flex flex-col md:flex-row justify-between bg-slate-200 p-4 my-2 capitalize`,
+  liComplete: `flex flex-col md:flex-row justify-between bg-slate-400 p-4 my-2 capitalize`,
   row: `flex`,
-  text: `ml-2 cursor-pointer`,
+  text: `ml-3 cursor-pointer`,
   textComplete: `ml-2 cursor-pointer line-through`,
-  button: `cursor-pointer flex items-center`,
+  button: `cursor-pointer flex items-center text-gray-600 hover:text-gray-900`,
+};
+
+const buttonStyle = {
+  backgroundColor: "#e2e8f0",
+  border: "none",
+  padding: "0rem 1rem",
+  marginRight: "0.5rem",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  borderRadius: "0.25rem",
 };
 
 const Todo = ({ todo, toggleComplete, deleteTodo, handleEdit }) => {
@@ -54,16 +65,28 @@ const Todo = ({ todo, toggleComplete, deleteTodo, handleEdit }) => {
       </div>
       <div className={style.button}>
         {isEditing ? (
-          <button onClick={handleSaveClick} className="mr-3">
+          <button
+            onClick={handleSaveClick}
+            style={buttonStyle}
+            className="mt-3 md:mt-0 md:mr-3"
+          >
             Save
           </button>
         ) : (
-          <button onClick={handleEditClick} className="mr-3">
-            {<AiFillEdit />}
+          <button
+            onClick={handleEditClick}
+            style={buttonStyle}
+            className="mt-3 md:mt-0 md:mr-3"
+          >
+            <AiFillEdit /> Edit
           </button>
         )}
-        <button onClick={() => deleteTodo(todo.id)} className="ml-3">
-          {<FaRegTrashAlt />}
+        <button
+          onClick={() => deleteTodo(todo.id)}
+          style={buttonStyle}
+          className="mt-3 md:mt-0"
+        >
+          <FaRegTrashAlt /> Delete
         </button>
       </div>
     </li>

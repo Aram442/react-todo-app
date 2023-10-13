@@ -22,8 +22,10 @@ function SignUp() {
   };
 
   return (
-    <div className="bg-white shadow-xl p-6 mx-auto w-1/2 mt-16 rounded-lg">
-      <h1 className="text-2xl font-semibold mb-4">Create Account</h1>
+    <div className="bg-white shadow-xl p-4 mx-auto w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mt-4 rounded-lg">
+      <h1 className="text-2xl font-semibold mb-4 text-center">
+        Create Account
+      </h1>
       <form onSubmit={signUp} className="flex flex-col gap-4">
         <input
           type="email"
